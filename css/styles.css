@@ -336,9 +336,11 @@
 /*CADASTRO*/
 
 #cadastro-container {
-    margin-top: 10em;
+    margin-top: 12em;
+    margin-bottom: 10em;
     height: 20em;
     width: 86%;
+
 }
 
 #cadastro-container button{
@@ -348,7 +350,8 @@
 
 @media(min-width:768px){
     #cadastro-container {
-        margin-top: 10em;
+        margin-top: 12em;
+        margin-bottom: 10em;
         height: 20em;
         width: 30em;
     }
