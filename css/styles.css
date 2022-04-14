@@ -343,13 +343,30 @@
 
 }
 
-#cadastro-container button{
-    position:absolute;
-
-}
 
 @media(min-width:768px){
     #cadastro-container {
+        margin-top: 12em;
+        margin-bottom: 10em;
+        height: 20em;
+        width: 30em;
+    }
+}
+
+
+/*LOGIN*/
+
+#login-container {
+    margin-top: 12em;
+    margin-bottom: 10em;
+    height: 20em;
+    width: 86%;
+
+}
+
+
+@media(min-width:768px){
+    #login-containerlogin-container {
         margin-top: 12em;
         margin-bottom: 10em;
         height: 20em;

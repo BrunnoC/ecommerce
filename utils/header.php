@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <?php
+    if (!isset($validaLogin) == true){
+
+      session_start();
+      if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha'])) == true ){
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('location:login.php');
+      }
+  
+      $logado = $_SESSION['login'];
+    }
+
+  ?>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,12 +49,23 @@
           <li class="nav-item">
             <a href="index.php" class="nav-link <?php echo $HomeAtiva?> primary-color" aria-current="true">Home</a>
           </li>
+          <?php
+            if(isset($_SESSION['nome'])){
+              echo "<li class=\"nav-item\"><a href=\"cadastroProdutos.php\" class=\"nav-link $cadastroProdutoAtiva primary-color\">Produtos</a></li>";
+            }
+          ?>
           <li class="nav-item">
             <a href="login.php" class="nav-link <?php echo $LoginAtiva?> primary-color">Login</a>
           </li>
           <li class="nav-item">
             <a href="cadastro.php" class="nav-link <?php echo $CadastroAtiva?> primary-color">Cadastre-se</a>
           </li>
+          <?php
+            if(isset($_SESSION['nome'])){
+              $nomeUsuarioLogado = $_SESSION['nome'];
+              echo "<li class=\"nav-item\"><a href=\"logout.php\" class=\"nav-link primary-color\">$nomeUsuarioLogado , deseja sair?</a></li>";
+            }
+          ?>
         </ul>
       </div>
     </div>
