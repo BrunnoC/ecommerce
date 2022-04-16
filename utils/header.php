@@ -98,13 +98,19 @@
               }
               echo "<li class=\"nav-item\"><a href=\"cadastroProdutos.php\" class=\"nav-link $cadastroProdutoAtiva primary-color\">Produtos</a></li>";
             }
+            else{
+              if (!isset($LoginAtiva)){
+                $LoginAtiva = "";
+              }
+              if (!isset($CadastroAtiva)){
+                $CadastroAtiva = "";
+              }
+              echo "<li class=\"nav-item\"><a href=\"login.php\" class=\"nav-link <?php echo $LoginAtiva?> primary-color\">Login</a></li>" ;
+              echo "<li class=\"nav-item\"><a href=\"cadastro.php\" class=\"nav-link <?php echo $CadastroAtiva?> primary-color\">Cadastre-se</a></li>";
+            }
           ?>
-          <li class="nav-item">
-            <a href="login.php" class="nav-link <?php echo $LoginAtiva?> primary-color">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="cadastro.php" class="nav-link <?php echo $CadastroAtiva?> primary-color">Cadastre-se</a>
-          </li>
+          
+          
           <?php
             if(isset($_SESSION['nome'])){
               $nomeUsuarioLogado = $_SESSION['nome'];
