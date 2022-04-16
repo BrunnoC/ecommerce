@@ -10,3 +10,4 @@ na aba home é possível verificar algumas informações.
 O design foi realizado com bootstrap e css.
 Na aba produtos se encontra o "CRUD" dos produtos.
 Onde é possível cadastrar, editar e excluir um produto.
+Caso não exista um banco criado no mysql, o próprio sistema irá criar o banco de dados e suas respectivas tabelas.
