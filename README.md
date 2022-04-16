@@ -10,4 +10,5 @@ na aba home é possível verificar algumas informações.
 O design foi realizado com bootstrap e css.
 Na aba produtos se encontra o "CRUD" dos produtos.
 Onde é possível cadastrar, editar e excluir um produto.
-Caso não exista um banco criado no mysql, o próprio sistema irá criar o banco de dados e suas respectivas tabelas.
+
+Na pasta sqldb existem informações e códigos sql para recriar o banco utilizado pelo site. Porém a criação não é necessária tendo em vista que o próprio site cria o banco e suas tabelas para que possa usa-los. Somente utilize o sql caso tenha interesse em obter os registros cadastrados anteriormente.
