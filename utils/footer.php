@@ -60,7 +60,7 @@
         <div class="col-12" id="footer-bottom">
           <div class="row justify-content-between">
             <div class="col-12 col-md-3">
-              <p class="secondary-color">Fusa &copy; 2022</p>
+              <p class="secondary-color">Fusa &copy; 2022 - ALFA</p>
             </div>
             <div class="col-12 col-md-3">
               <p class="secondary-color">Ecommerce-brunno<i class="bi bi-heart"></i></p>
@@ -73,4 +73,5 @@
   </footer>
 
 </body>
+
 </html>

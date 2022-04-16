@@ -373,3 +373,22 @@
         width: 30em;
     }
 }
+
+
+/*CADASTRO produtos*/
+
+#listprodutos-container, #produto-container {
+    margin-top: 12em;
+
+    width: 86%;
+
+}
+
+
+@media(min-width:768px){
+    #listprodutos-container , #produto-container {
+        margin-top: 12em;
+        margin-bottom: 10em;
+
+    }
+}

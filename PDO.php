@@ -58,6 +58,25 @@ class usePDO {
         }
     }
 
+
+    function createTableProdutos(){
+        try{
+            $cnx = $this->getInstance();
+            $sql = "CREATE TABLE IF NOT EXISTS produtos (
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                nome VARCHAR(60) NOT NULL,
+                descricao text,
+                codigodebarras VARCHAR(20),
+                id_fabricante int(6)
+            )";
+
+
+            $cnx->exec($sql);
+        }catch(PDOException $e){
+            echo $sql. "<br>" . $e->getMessage();
+        }
+    }
+
     function autentica($sql){
         $cnx = $this->getInstance();
         $this->createTable();

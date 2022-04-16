@@ -32,8 +32,45 @@
   <link rel="stylesheet" href="css/styles.css">
   <!-- JavaScript Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    function readProdutos(){
+    document.getElementById("tabelaProdutos").innerHtml = "";
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200){
+        
+        var response = JSON.parse(this.responseText);
+        var table = "<thead>" +
+        "<th scope=\"col\">#</th>" +
+        "<th scope=\"col\">Nome</th>"+
+        "<th scope=\"col\">Descrição</th>"+
+        "<th scope=\"col\">Código de barras</th>"+
+        "<th scope=\"col\">Fabricante</th>"+
+        "<th scope=\"col\">Editar</th>"+
+        "<th scope=\"col\">Excluir</th>"+
+        "</thead>";
+        var newline = "<tbody>";
+        for (var i = response.length - 1 ;i >=0 ; i--){
+          newline += "<tr><td>"+response[i].id+"</td><td>"+response[i].nome+"</td><td>"+response[i].descricao+"</td><td>"+response[i].codigodebarras+"</td><td>"+response[i].id_fabricante+"</td>";
+          newline += "<td> <a href=\"Produto.php?editar=Editar&id="+response[i].id+"&nome="+response[i].nome+"&descricao="+response[i].descricao+"&cbarra="+response[i].codigodebarras+"&idFab="+response[i].id_fabricante+"\"> <button type=\"button\" class=\"btn btn-dark\">Editar</button> <a/> </td>";
+          newline += "<td> <a href=\"operationsProdutos.php?q=delete&id="+response[i].id+"\"> <button type=\"button\" class=\"btn btn-dark\">Excluir</button> <a/> </td>";
+          
+        }
+        newline += " </tbody>";
+        table += newline;
+        document.getElementById("tabelaProdutos").innerHTML = table;
+      }
+
+    };
+    xhttp.open("GET","operationsProdutos.php?q=readProdutos",true);
+    xhttp.send();
+
+
+  }
+  </script>
 </head>
-<body>
+<body onload="readProdutos()" >
   <!--NAVBAR-->
   <nav class="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
     <div class="container py-3">
@@ -46,11 +83,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="index.php" class="nav-link <?php echo $HomeAtiva?> primary-color" aria-current="true">Home</a>
-          </li>
           <?php
             if(isset($_SESSION['nome'])){
+              if (!isset($HomeAtiva)){
+                $HomeAtiva = "";
+              }
+              echo "<li class=\"nav-item\"> <a href=\"index.php\" class=\"nav-link $HomeAtiva primary-color\" aria-current=\"true\">Home</a> </li>";
+            }
+          ?>
+          <?php
+            if(isset($_SESSION['nome'])){
+              if (!isset($cadastroProdutoAtiva)){
+                $cadastroProdutoAtiva = "";
+              }
               echo "<li class=\"nav-item\"><a href=\"cadastroProdutos.php\" class=\"nav-link $cadastroProdutoAtiva primary-color\">Produtos</a></li>";
             }
           ?>
